@@ -1,0 +1,16 @@
+[
+  {
+    "subject": "RTR Required for Data Engineer",
+    "body": "Please send your updated resume and right to represent.",
+    "agency": "Example Staffing",
+    "client": "Client_001",
+    "expected_type": "RTR_REQUEST"
+  },
+  {
+    "subject": "Interview Scheduled",
+    "body": "The client would like to schedule an interview this week.",
+    "agency": "Example Staffing",
+    "client": "Client_002",
+    "expected_type": "INTERVIEW"
+  }
+]
