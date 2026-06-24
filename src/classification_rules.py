@@ -1,5 +1,3 @@
-# src/classification_rules.py
-
 def classify_email(subject: str, body: str):
 
     text = f"{subject} {body}".lower()
@@ -18,5 +16,12 @@ def classify_email(subject: str, body: str):
 
     if "assessment" in text or "coding challenge" in text:
         return "ASSESSMENT"
+
+    if (
+        "move forward with another candidate" in text
+        or "not selected" in text
+        or "unfortunately" in text
+    ):
+        return "REJECTION"
 
     return "OUTREACH"
