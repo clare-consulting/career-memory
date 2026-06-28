@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from schema import RecruiterInteraction
+from schema import CareerEvent
 
 
 class CareerConnector(ABC):
@@ -12,7 +12,7 @@ class CareerConnector(ABC):
     source_name: str
 
     @abstractmethod
-    def load_events(self) -> List[RecruiterInteraction]:
+    def load_events(self) -> List[CareerEvent]:
         """
         Load career-related events from a source system.
         """

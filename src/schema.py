@@ -1,14 +1,47 @@
 from dataclasses import dataclass
 from datetime import datetime
+from typing import Optional
+
+from source import Source
 
 
 @dataclass
-class RecruiterInteraction:
-    recruiter_name: str
-    agency: str
-    client: str
-    role_title: str
-    interaction_type: str
-    interaction_date: datetime
-    outcome: str
+class CareerEvent:
+    """
+    Represents a single career-related event from any supported source.
+    """
+
+    # Source metadata
+    source: Source
+    thread_id: Optional[str] = None
+    message_id: Optional[str] = None
+
+    # Time
+    event_date: Optional[datetime] = None
+
+    # Recruiter information
+    recruiter_name: Optional[str] = None
+    recruiter_email: Optional[str] = None
+
+    # Company information
+    agency: Optional[str] = None
+    client: Optional[str] = None
+
+    # Job information
+    role_title: Optional[str] = None
+    location: Optional[str] = None
+    employment_type: Optional[str] = None
+    rate: Optional[str] = None
+
+    # Classification
+    interaction_type: str = "UNKNOWN"
+
+    # Outcome
+    outcome: str = "UNKNOWN"
+
+    # Original content
+    subject: Optional[str] = None
+    body: Optional[str] = None
+
+    # Notes
     notes: str = ""
