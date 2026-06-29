@@ -9,6 +9,11 @@ class GmailConnector(CareerConnector):
 
     def load_events(self) -> List[CareerEvent]:
         """
-        Future: load recruiter emails from Gmail.
+        Load career-related events from Gmail.
+
+        Authentication and Gmail API access are intentionally not implemented yet.
         """
+        # TODO: Integrate Gmail API client after authentication is defined.
+        # TODO: Fetch candidate recruiter email threads/messages from Gmail.
+        # TODO: Map Gmail messages into CareerEvent instances.
         return []

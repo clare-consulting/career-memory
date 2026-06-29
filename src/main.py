@@ -1,17 +1,24 @@
 from connector_manager import ConnectorManager
 
 
-def main():
-
+def print_banner() -> None:
+    """
+    Print the Career Memory application banner.
+    """
     print("=" * 40)
     print("Career Memory")
     print("=" * 40)
 
-    manager = ConnectorManager()
 
+def main() -> None:
+    """
+    Run the Career Memory connector loading workflow.
+    """
+    print_banner()
+
+    manager = ConnectorManager()
     events = manager.load_all_events()
 
-    print()
     print(f"Loaded {len(events)} career events.")
 
 
