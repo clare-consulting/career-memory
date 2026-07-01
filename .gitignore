@@ -11,9 +11,12 @@ env/
 # Local databases
 career_memory.db
 *.db
+*.sqlite
+*.sqlite3
 
 # Environment variables
 .env
+.env.*
 
 # macOS
 .DS_Store
@@ -32,3 +35,11 @@ desktop.ini
 # Coverage
 .coverage
 htmlcov/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
