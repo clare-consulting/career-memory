@@ -1,0 +1,14 @@
+# Testing
+pytest
+
+# Code formatting
+black
+
+# Linting
+ruff
+
+# Type checking
+mypy
+
+# Pre-commit hooks
+pre-commit
