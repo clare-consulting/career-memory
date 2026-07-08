@@ -43,3 +43,7 @@ build/
 
 # Logs
 *.log
+
+# Gmail OAuth
+credentials.json
+token.json
