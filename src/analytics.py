@@ -1,6 +1,5 @@
 from collections import Counter
 from typing import Dict, List
-
 from schema import CareerEvent
 
 
@@ -8,7 +7,6 @@ class AnalyticsEngine:
     """
     Compute simple aggregate counts for CareerEvent records.
     """
-
     def __init__(self, events: List[CareerEvent]):
         self.events = events
 
@@ -23,6 +21,14 @@ class AnalyticsEngine:
         Count career events by agency.
         """
         return self._count_optional_text("agency")
+
+    def count_by_account_label(self) -> Dict[str, int]:
+        """
+        Count career events by account/mailbox (CM-017). Useful once more
+        than one Gmail account is wired in; on a single-account setup this
+        just shows one row.
+        """
+        return self._count_optional_text("account_label")
 
     def count_by_interaction_type(self) -> Dict[str, int]:
         """
@@ -39,5 +45,4 @@ class AnalyticsEngine:
             for event in self.events
             if isinstance((value := getattr(event, field_name)), str) and value
         ]
-
         return dict(Counter(values))

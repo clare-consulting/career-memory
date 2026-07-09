@@ -44,8 +44,6 @@ class GmailConnector(CareerConnector):
     def load_events(self) -> List[CareerEvent]:
         """
         Load career-related events from Gmail.
-
-        Authentication and Gmail API access are intentionally not implemented yet.
         """
         messages = self.client.list_messages(query="recruiter", max_results=20)
 
@@ -63,6 +61,10 @@ class GmailConnector(CareerConnector):
             source=Source.GMAIL,
             thread_id=self._get_optional_text(message, "threadId", "thread_id"),
             message_id=self._get_optional_text(message, "id", "message_id"),
+            # CM-017: tag each event with which mailbox it came from.
+            # Uses the already-cached authenticated_email from GmailClient
+            # (added in CM-015 for self-sent filtering) — no new API call.
+            account_label=self.client.authenticated_email,
             subject=subject,
             body=body,
             interaction_type=parsed_fields.get("interaction_type") or "UNKNOWN",
